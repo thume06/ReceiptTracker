@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="502.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tracker.TrackerController">
+   <children>
+      <ChoiceBox fx:id="category" layoutX="45.0" layoutY="85.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="location" layoutX="45.0" layoutY="140.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="payer" layoutX="45.0" layoutY="195.0" prefWidth="150.0" />
+      <TextField fx:id="price" layoutX="45.0" layoutY="250.0" prefHeight="25.0" prefWidth="150.0" />
+      <Button layoutX="45.0" layoutY="290.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="150.0" text="Add Receipt" />
+      <Button layoutX="45.0" layoutY="325.0" mnemonicParsing="false" onAction="#Remove" prefHeight="25.0" prefWidth="150.0" text="Remove Selected" />
+      <Label layoutX="103.0" layoutY="175.0" text="Payer">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="94.0" layoutY="120.0" text="Location">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="65.0" text="Category">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="231.0" text="Price">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="153.0" layoutY="14.0" text="Receipt Tracker">
+         <font>
+            <Font name="Britannic Bold" size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="360.0" text="Tristan's Total:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="155.0" layoutY="360.0" text="Anne's Total:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tristanTotal" editable="false" layoutX="16.0" layoutY="380.0" prefHeight="25.0" prefWidth="89.0" />
+      <TextField fx:id="anneTotal" editable="false" layoutX="151.0" layoutY="380.0" prefHeight="25.0" prefWidth="89.0" />
+      <Button layoutX="46.0" layoutY="451.0" mnemonicParsing="false" onAction="#Save" prefHeight="25.0" prefWidth="150.0" text="Save Receipts" />
+      <ListView fx:id="receiptList" layoutX="279.0" layoutY="70.0" prefHeight="374.0" prefWidth="293.0" />
+      <Label fx:id="lblCredit" layoutX="50.0" layoutY="424.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
