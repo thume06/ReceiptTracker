@@ -56,7 +56,7 @@ public class TrackerController implements Initializable, ControlledScreen {
         double pr = Double.valueOf(price.getText());
 
         receiptArray.add(new Receipt(c, pa, pr, l));
-        receiptList.getItems().add(receiptArray.get(receiptArray.size() - 1).toString());
+        receiptList.getItems().add(Append(receiptArray.get(receiptArray.size() - 1).toString()));
 
         int count = 0;
         double tristan = 0.0;
@@ -65,7 +65,7 @@ public class TrackerController implements Initializable, ControlledScreen {
             if(receiptArray.get(count).getPayer().equals("Tristan")){
                 tristan = tristan + receiptArray.get(count).getPrice();
             }
-            else{
+            else if(receiptArray.get(count).getPayer().equals("Anne")){
                 anne = anne + receiptArray.get(count).getPrice();
             }
             count = count + 1;
@@ -123,7 +123,7 @@ public class TrackerController implements Initializable, ControlledScreen {
                 lblCredit.setText("Even totals; no credit");
             }
         }
-        else{
+        else if(pa.equals("Anne")){
             anne = anne - pr;
             anneTotal.setText(Append(String.valueOf(anne)));
             anneCredit = anne/2;
@@ -197,7 +197,7 @@ public class TrackerController implements Initializable, ControlledScreen {
         receiptList.getItems().clear();
         int count = 0;
         while(count < receiptArray.size()){
-            receiptList.getItems().add(receiptArray.get(count).toString());
+            receiptList.getItems().add(Append(receiptArray.get(count).toString()));
             count = count + 1;
         }
 
@@ -208,7 +208,7 @@ public class TrackerController implements Initializable, ControlledScreen {
             if(receiptArray.get(count).getPayer().equals("Tristan")){
                 tristan = tristan + receiptArray.get(count).getPrice();
             }
-            else{
+            else if(receiptArray.get(count).getPayer().equals("Anne")){
                 anne = anne + receiptArray.get(count).getPrice();
             }
             count = count + 1;
@@ -229,5 +229,16 @@ public class TrackerController implements Initializable, ControlledScreen {
             String cr = String.valueOf(credit);
             lblCredit.setText("Anne has $" + Append(cr) + " credit");
         }
+        else{
+            lblCredit.setText("Even totals; no credit");
+        }
+    }
+
+    @FXML public void Clear(){
+        receiptArray.clear();
+        receiptList.getItems().clear();
+        tristanTotal.setText("0.00");
+        anneTotal.setText("0.00");
+        lblCredit.setText("Even totals; no credit");
     }
 }
