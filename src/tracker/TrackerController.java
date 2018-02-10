@@ -173,6 +173,38 @@ public class TrackerController implements Initializable, ControlledScreen {
         if(str.substring(Math.max(str.length() - 2, 0)).equals(".0")){
             str = (str + "0");
         }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".1")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".2")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".3")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".4")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".5")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".6")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".7")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".8")){
+            str = (str + "0");
+        }
+        else if(str.substring(Math.max(str.length() - 2, 0)).equals(".9")){
+            str = (str + "0");
+        }
+
+        int dotPos = str.indexOf(".");
+        if(str.length() > (dotPos + 3)){
+            str = str.substring(0, (dotPos + 3));
+        }
         return str;
     }
 
