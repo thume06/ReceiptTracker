@@ -303,6 +303,7 @@ public class TrackerController implements Initializable, ControlledScreen {
         periodSelect.setValue(lastPeriod.get(0));
 
         int count = 0;
+        receiptList.getItems().clear();
         while(count < receiptArray.size()){
             if(receiptArray.get(count).getPeriod().equals(lastPeriod.get(0))){
                 String cat = receiptArray.get(count).getCategory();
