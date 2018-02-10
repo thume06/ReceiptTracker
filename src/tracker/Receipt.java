@@ -4,21 +4,26 @@ import java.io.Serializable;
 
 public class Receipt implements Serializable{
     private String category;
-    private String store;
     private String payer;
+    private String period;
     private double price;
 
-    public Receipt(String c, String pa, double pr, String s){
+    public Receipt(String c, String pa, double pr, String per){
         category = c;
         payer = pa;
         price = pr;
-        store = s;
+        period = per;
     }
 
     @Override
     public String toString(){
-        return (category + ", " + store + ", paid by " + payer + ": " + price);
+        return (category + " - " + payer + ": $" + price);
     }
+
+    public String getCategory(){
+        return category;
+    }
+
 
     public String getPayer(){
         return payer;
@@ -26,5 +31,9 @@ public class Receipt implements Serializable{
 
     public Double getPrice(){
         return price;
+    }
+
+    public String getPeriod(){
+        return period;
     }
 }
