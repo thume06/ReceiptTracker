@@ -509,7 +509,6 @@ public class TrackerController implements Initializable, ControlledScreen {
         while(count < loadedArray.size()){
             String cat =loadedArray.get(count).getCategory();
             Double price = loadedArray.get(count).getPrice();
-            if(!loadedArray.get(count).getPayer().equals("Don't Count")) {
                 if (cat.equals("Groceries")) {
                     groceries = groceries + price;
                 } else if (cat.equals("Gas")) {
@@ -520,7 +519,6 @@ public class TrackerController implements Initializable, ControlledScreen {
                 else if(cat.equals("Restaurant")){
                     rest = rest + price;
                 }
-            }
             count = count + 1;
         }
 
