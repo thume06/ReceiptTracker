@@ -7,11 +7,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="609.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tracker.TrackerController">
+<AnchorPane prefHeight="665.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tracker.TrackerController">
    <children>
-      <ChoiceBox fx:id="periodSelect" layoutX="46.0" layoutY="95.0" prefWidth="150.0" />
-      <Button layoutX="46.0" layoutY="130.0" mnemonicParsing="false" onAction="#NewPeriod" prefHeight="25.0" prefWidth="150.0" text="New Period" />
-      <Button layoutX="46.0" layoutY="165.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Remove Period" />
+      <ChoiceBox fx:id="periodSelect" layoutX="44.0" layoutY="122.0" prefWidth="150.0" />
+      <Button layoutX="44.0" layoutY="157.0" mnemonicParsing="false" onAction="#NewPeriod" prefHeight="25.0" prefWidth="150.0" text="New Period" />
       <ChoiceBox fx:id="category" layoutX="46.0" layoutY="238.0" prefWidth="150.0" />
       <ChoiceBox fx:id="payer" layoutX="46.0" layoutY="294.0" prefWidth="150.0" />
       <TextField fx:id="price" layoutX="46.0" layoutY="349.0" prefHeight="25.0" prefWidth="150.0" />
@@ -32,7 +31,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="119.0" layoutY="14.0" text="Receipt Tracker">
+      <Label layoutX="119.0" layoutY="33.0" text="Receipt Tracker">
          <font>
             <Font name="Britannic Bold" size="42.0" />
          </font>
@@ -50,14 +49,38 @@
       <TextField fx:id="tristanTotal" editable="false" layoutX="32.0" layoutY="487.0" prefHeight="25.0" prefWidth="89.0" />
       <TextField fx:id="anneTotal" editable="false" layoutX="138.0" layoutY="487.0" prefHeight="25.0" prefWidth="89.0" />
       <Button layoutX="47.0" layoutY="550.0" mnemonicParsing="false" onAction="#Save" prefHeight="25.0" prefWidth="150.0" text="Save Receipts" />
+      <TextField fx:id="groceriesTotal" editable="false" layoutX="43.0" layoutY="618.0" prefHeight="25.0" prefWidth="89.0" />
+      <TextField fx:id="restTotal" editable="false" layoutX="163.0" layoutY="618.0" prefHeight="25.0" prefWidth="89.0" />
+      <TextField fx:id="gasTotal" editable="false" layoutX="283.0" layoutY="618.0" prefHeight="25.0" prefWidth="89.0" />
+      <TextField fx:id="otherTotal" editable="false" layoutX="403.0" layoutY="618.0" prefHeight="25.0" prefWidth="89.0" />
       <Button layoutX="305.0" layoutY="550.0" mnemonicParsing="false" onAction="#Clear" prefHeight="25.0" prefWidth="150.0" text="Clear Receipts" />
-      <ListView fx:id="receiptList" layoutX="266.0" layoutY="76.0" prefHeight="448.0" prefWidth="227.0" />
+      <ListView fx:id="receiptList" layoutX="266.0" layoutY="99.0" prefHeight="425.0" prefWidth="227.0" />
       <Label fx:id="lblCredit" layoutX="50.0" layoutY="520.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblPeriod" layoutX="71.0" layoutY="69.0" text="Current Period: ">
+      <Label fx:id="lblPeriod" layoutX="69.0" layoutY="96.0" text="Current Period: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="598.0" text="Groceries Total:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="297.0" layoutY="598.0" text="Gas Total:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="411.0" layoutY="598.0" text="Other Total:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="153.0" layoutY="598.0" text="Restaurants Total:">
          <font>
             <Font size="14.0" />
          </font>

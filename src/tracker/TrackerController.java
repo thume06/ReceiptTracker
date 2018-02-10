@@ -28,6 +28,10 @@ public class TrackerController implements Initializable, ControlledScreen {
     @FXML ListView receiptList;
     @FXML TextField price;
     @FXML TextField tristanTotal;
+    @FXML TextField groceriesTotal;
+    @FXML TextField gasTotal;
+    @FXML TextField otherTotal;
+    @FXML TextField restTotal;
     @FXML TextField anneTotal;
     @FXML Label lblCredit;
     @FXML Label lblPeriod;
@@ -37,6 +41,10 @@ public class TrackerController implements Initializable, ControlledScreen {
         lblCredit.setText("Even totals; no credit");
         tristanTotal.setText("0.00");
         anneTotal.setText("0.00");
+        groceriesTotal.setText("0.00");
+        gasTotal.setText("0.00");
+        otherTotal.setText("0.00");
+        restTotal.setText("0.00");
         payer.setItems(FXCollections.observableArrayList(
                 "Tristan", "Anne", "Don't Count"));
         payer.setValue("Tristan");
@@ -104,6 +112,7 @@ public class TrackerController implements Initializable, ControlledScreen {
         else{
             lblCredit.setText("Even totals; no credit");
         }
+        Totals();
     }
 
     @FXML public void Remove(){
@@ -166,6 +175,7 @@ public class TrackerController implements Initializable, ControlledScreen {
                 lblCredit.setText("Even totals; no credit");
             }
         }
+        Totals();
     }
 
     public String Append(String s){
@@ -336,6 +346,7 @@ public class TrackerController implements Initializable, ControlledScreen {
 
         int count = 0;
         receiptList.getItems().clear();
+        loadedArray.clear();
         while(count < receiptArray.size()){
             if(receiptArray.get(count).getPeriod().equals(lastPeriod.get(0))){
                 String cat = receiptArray.get(count).getCategory();
@@ -379,6 +390,7 @@ public class TrackerController implements Initializable, ControlledScreen {
         else{
             lblCredit.setText("Even totals; no credit");
         }
+        Totals();
     }
 
     @FXML public void Clear(){
@@ -410,6 +422,10 @@ public class TrackerController implements Initializable, ControlledScreen {
         tristanTotal.setText("0.00");
         anneTotal.setText("0.00");
         lblCredit.setText("Even totals; no credit");
+        gasTotal.setText("0.00");
+        groceriesTotal.setText("0.00");
+        otherTotal.setText("0.00");
+        restTotal.setText("0.00");
     }
 
 
@@ -480,5 +496,37 @@ public class TrackerController implements Initializable, ControlledScreen {
         else{
             lblCredit.setText("Even totals; no credit");
         }
+        Totals();
+    }
+
+    public void Totals(){
+        Double groceries = 0.0;
+        Double gas = 0.0;
+        Double other = 0.0;
+        Double rest = 0.0;
+        int count = 0;
+
+        while(count < loadedArray.size()){
+            String cat =loadedArray.get(count).getCategory();
+            Double price = loadedArray.get(count).getPrice();
+            if(!loadedArray.get(count).getPayer().equals("Don't Count")) {
+                if (cat.equals("Groceries")) {
+                    groceries = groceries + price;
+                } else if (cat.equals("Gas")) {
+                    gas = gas + price;
+                } else if (cat.equals("Other")) {
+                    other = other + price;
+                }
+                else if(cat.equals("Restaurant")){
+                    rest = rest + price;
+                }
+            }
+            count = count + 1;
+        }
+
+        groceriesTotal.setText(Append(String.valueOf(groceries)));
+        gasTotal.setText(Append(String.valueOf(gas)));
+        otherTotal.setText(Append(String.valueOf(other)));
+        restTotal.setText(Append(String.valueOf(rest)));
     }
 }
